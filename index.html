@@ -82,9 +82,19 @@
   };
 
   const equipasCCFidelidade = [
-    { nome: "B2B", valor: "b2b" },
-    { nome: "Inbound", valor: "inbound" },
-    { nome: "Gestão e Supervisão", valor: "supervisao" }
+    { nome: "Coordenação", valor: "coord" },
+    { nome: "Supervisão", valor: "spv" },
+        { nome: "Suporte e Collab", valor: "gest" },
+        { nome: "Sinistros - Acidentes Trabalho", valor: "snat" },
+        { nome: "Sinistros - Automóvel", valor: "snau" },
+        { nome: "Sinistros - Multiriscos", valor: "snmr" },
+{ nome: "Apoio Cliente", valor: "apoiocl" },
+{ nome: "Digital", valor: "digital" },
+{ nome: "Distribuição", valor: "Distribuição" },
+{ nome: "Multicare", valor: "mtc" },
+{ nome: "Vendas", valor: "vendas" },
+{ nome: "DCH", valor: "DCH" },
+{ nome: "Indexação", valor: "Indexação" }
   ];
 
   function mostrarEquipas() {
@@ -107,7 +117,7 @@
     } else if (area === "serv_admin") {
       const option = document.createElement("option");
       option.value = "serv_admin";
-      option.textContent = "Serviços Administrativos";
+      option.textContent = "BPO";
       selectEquipa.appendChild(option);
     }
 
