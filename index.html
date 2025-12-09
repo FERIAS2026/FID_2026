@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marcação de Férias 2026</title>
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: url('FUNDO.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  .container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  select {
+    width:100%;
+    padding:12px;
+    margin:15px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+  }
+  button {
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    background-color:#28a745;
+    border:none;
+    border-radius:8px;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+  }
+  button:hover { background-color:#218838; }
+  .error { color:red; margin-top:10px; font-size:14px; }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h2>Marcação de Férias 2026</h2>
+
+  <form onsubmit="return irParaEquipa(event)">
+
+    <!-- Select Área Principal -->
+    <select id="area" required onchange="mostrarEquipas()">
+      <option value="">-- Selecionar Área --</option>
+      <option value="cc_fidelidade">CC FIDELIDADE</option>
+      <option value="serv_admin">Serviços Administrativos</option>
+    </select>
+
+    <!-- Select Equipas (inicialmente escondido) -->
+    <select id="equipa" required style="display:none;">
+      <option value="">-- Selecionar Equipa --</option>
+    </select>
+
+    <button type="submit">Seguinte</button>
+  </form>
+
+  <p id="erro" class="error"></p>
+</div>
+
+<script>
+  const rotas = {
+    b2b: "B2B.html",
+    inbound: "Inbound.html",
+    supervisao: "Supervisao.html",
+    serv_admin: "ServAdmin.html"
+  };
+
+  const equipasCCFidelidade = [
+    { nome: "B2B", valor: "b2b" },
+    { nome: "Inbound", valor: "inbound" },
+    { nome: "Gestão e Supervisão", valor: "supervisao" }
+  ];
+
+  function mostrarEquipas() {
+    const area = document.getElementById("area").value;
+    const selectEquipa = document.getElementById("equipa");
+    selectEquipa.innerHTML = '<option value="">-- Selecionar Equipa --</option>';
+
+    if (!area) {
+      selectEquipa.style.display = "none";
+      return;
+    }
+
+    if (area === "cc_fidelidade") {
+      equipasCCFidelidade.forEach(e => {
+        const option = document.createElement("option");
+        option.value = e.valor;
+        option.textContent = e.nome;
+        selectEquipa.appendChild(option);
+      });
+    } else if (area === "serv_admin") {
+      const option = document.createElement("option");
+      option.value = "serv_admin";
+      option.textContent = "Serviços Administrativos";
+      selectEquipa.appendChild(option);
+    }
+
+    selectEquipa.style.display = "block";
+  }
+
+  function irParaEquipa(event) {
+    event.preventDefault();
+    const equipa = document.getElementById("equipa").value;
+    const erro = document.getElementById("erro");
+    erro.textContent = "";
+
+    if (!equipa) {
+      erro.textContent = "Selecione uma equipa.";
+      return;
+    }
+
+    window.location.href = rotas[equipa];
+  }
+</script>
+</body>
+</html>
