@@ -57,7 +57,7 @@ h1, h2 { text-align: center; }
 <body>
 
 <div id="passwordPrompt">
-<h1>EQUIPA B2B</h1>
+<h1>EQUIPAFID BPO</h1>
 <label for="password">Password de Acesso:</label>
 <input type="password" id="password" required>
 <button id="btnEntrar">Entrar</button>
@@ -65,7 +65,7 @@ h1, h2 { text-align: center; }
 </div>
 
 <div id="formContainer">
-<h1>Equipa B2B</h1>
+<h1>Equipa FID BPO</h1>
 
 <form id="reservaForm">
 <label for="nome">Nome:</label>
@@ -193,7 +193,7 @@ document.getElementById("dataFim").addEventListener("change", atualizarDiasCalcu
 
 async function verificarDatasDuplicadas(nome,dataInicio,dataFim){
     const { data } = await supabaseClient
-        .from("wrt_b2b")
+        .from("fid_bpo")
         .select("data_inicio,data_fim")
         .eq("nome",nome);
 
@@ -213,7 +213,7 @@ const limites = {
     "Joel Quissama Mundjanga": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
     "Orlanda Leizi Gomes Francisco": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
     "Joana de Almeida Figueiras": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
-    "Nádia Filipa Contins Cunha Oliveira": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+    "Nádia Filipa Contins Cunha Oliveira": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 11 },
     "Andreia Sofia Figueiredo Grilo": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
     "Carina Ourives Lavado": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
     "Madalena Farinha de Carvalho e Sousa Góis": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
@@ -234,7 +234,7 @@ const limites = {
     "Sandra Isabel Domingues Facão": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
     "Carolina Adelaide Viegas Gomes Padeiro": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
     "Joana Emanuela Lenho da Costa Sousa": { "F25": 5, "Preferenciais": 10, "Não Preferenciais": 12 },
-    "Carla Mariza Dias Trindade": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+    "Carla Mariza Dias Trindade": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 11 },
     "Gilda Maria Infante Anjos": { "F25": 7, "Preferenciais": 10, "Não Preferenciais": 12 },
     "Ana Karina Spencer Martins": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
     "Mónica Sofia Pereira Valente": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
@@ -244,7 +244,7 @@ const limites = {
 
 
     const { data } = await supabaseClient
-        .from("wrt_b2b")
+        .from("fid_bpo")
         .select("total_dias,tipo_dias")
         .eq("nome",nome)
         .eq("tipo_dias",tipoDias);
@@ -315,7 +315,7 @@ document.getElementById("reservaForm").addEventListener("submit", async(e)=>{
         return;
     }
 
-    await supabaseClient.from("wrt_b2b").insert([{
+    await supabaseClient.from("fid_bpo").insert([{
         nome,
         tipo_dias: tipoDias,
         data_inicio: dataInicio,
@@ -343,7 +343,7 @@ document.getElementById("reservaForm").addEventListener("submit", async(e)=>{
 });
 
 document.getElementById("btnEntrar").addEventListener("click",()=>{
-    if(document.getElementById("password").value === "TRWORTEN"){
+    if(document.getElementById("password").value === "BPO-2026"){
         document.getElementById("passwordPrompt").style.display="none";
         document.getElementById("formContainer").style.display="block";
     } else {
@@ -354,4 +354,3 @@ document.getElementById("btnEntrar").addEventListener("click",()=>{
 
 </body>
 </html>
-
