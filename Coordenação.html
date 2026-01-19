@@ -59,7 +59,7 @@ h1, h2 { text-align: center; }
 
 <!-- LOGIN -->
 <div id="passwordPrompt">
-<h1>EQUIPA B2B</h1>
+<h1>EQUIPA COORDENAÇÃO</h1>
 <label for="password">Password de Acesso:</label>
 <input type="password" id="password" required>
 <button id="btnEntrar">Entrar</button>
@@ -68,7 +68,7 @@ h1, h2 { text-align: center; }
 
 <!-- FORMULÁRIO -->
 <div id="formContainer">
-<h1>Equipa B2B</h1>
+<h1>Equipa Coordenação</h1>
 
 <form id="reservaForm">
 <label for="nome">Nome:</label>
@@ -328,7 +328,7 @@ document.getElementById("reservaForm").addEventListener("submit", async(e)=>{
 });
 
 document.getElementById("btnEntrar").addEventListener("click",()=>{
-    if(document.getElementById("password").value === "TRWORTEN"){
+    if(document.getElementById("password").value === "FIDCOORD"){
         document.getElementById("passwordPrompt").style.display="none";
         document.getElementById("formContainer").style.display="block";
     } else {
