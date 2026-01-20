@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedido de Férias 2026</title>
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 40px;
+
+    /* 🔥 IMAGEM DE FUNDO */
+    background-image: url("FUNDO.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #0f3d2e;
+}
+#passwordPrompt, #formContainer {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(15, 61, 46, 0.2);
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+label { display: block; margin-bottom: 10px; color: #0f3d2e; }
+select, input[type="date"], input[type="password"] {
+    padding: 8px; margin-bottom: 15px; width: 100%;
+    border: 1px solid #0f3d2e; border-radius: 6px;
+    background-color: #f8fdfb; color: #0f3d2e;
+}
+button {
+    padding: 10px 15px; background-color: #0f3d2e; color: white;
+    border: none; border-radius: 6px; cursor: pointer; margin-top: 10px;
+}
+button:hover { background-color: #0c3326; }
+.error { color: #a33; margin-top: 10px; display: none; }
+.success { color: green; font-weight: bold; margin-top: 15px; }
+#formContainer { display: none; }
+h1, h2 { text-align: center; }
+#resumoPedidos div {
+    border: 1px solid #0f3d2e;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    background-color: #e6ffec;
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="passwordPrompt">
+<h1>EQUIPA CLIENTES</h1>
+<label for="password">Password de Acesso:</label>
+<input type="password" id="password" required>
+<button id="btnEntrar">Entrar</button>
+<div id="senhaErro" class="error">Senha incorreta. Tente novamente.</div>
+</div>
+
+<!-- FORMULÁRIO -->
+<div id="formContainer">
+<h1>Equipa Clientes</h1>
+
+<form id="reservaForm">
+<label for="nome">Nome:</label>
+<select id="nome" required>
+  <option></option>
+<option>Alexandre José Ramalho Godinho</option>
+<option>Ana Isabel Conceição Santos</option>
+<option>Ana Rita Falcão Coradinho</option>
+<option>Ana Rosa Ministro Macário</option>
+<option>Barbara Isabel Amantes Raposo Nunes Soares</option>
+<option>Beatriz Nunes Cascalheira</option>
+<option>Carla Sofia Gomes da Silva</option>
+<option>Carmen Manuela Correia Maia</option>
+<option>Cátia Cristina Pombeiro Da Silva</option>
+<option>Cláudia Palma Amador</option>
+<option>Danbin Zhang</option>
+<option>Daniel Alexandre Pereira Barrocas</option>
+<option>Daniela Maria Moniz Ávila</option>
+<option>Dora Luisa Piteira Celestino</option>
+<option>Eliana Cardoso Frade</option>
+<option>Elisa Pereira Fernandes</option>
+<option>Filipa Manuela Fonseca Martins</option>
+<option>Inês Isabel Pãozinho Pelado</option>
+<option>Inna Orekhova</option>
+<option>Irene Isabel Pôla Romão</option>
+<option>Isabela Sofia Gonçalves Canhoto</option>
+<option>Joana Rita Sénica Magalhães</option>
+<option>João Nuno Branco Dias Batista Bernardino</option>
+<option>João Pedro Leitão Leal e Brito Simões</option>
+<option>José Augusto Chaleta Marques</option>
+<option>Lara Maria Teodoro Tendeiro Lopes</option>
+<option>Lin Mi</option>
+<option>Manuel da Silva Lopes Nunes</option>
+<option>Manuel David Amaro Eleutério</option>
+<option>Mara José Carrilho Semedo</option>
+<option>Maria de Fátima Quintino Quintas</option>
+<option>Maria de Lurdes Alves de Almeida</option>
+<option>Maria Eloy Fernandes Ferreira Prazeres</option>
+<option>Maria João Bulhões Pereira</option>
+<option>Maria Luz Mosca Rocha</option>
+<option>Maria Manuel Ambrosio Pecas</option>
+<option>Mário Augusto Coelho de Matos</option>
+<option>Marta Filipa Almeida Pontes Valle Cancado</option>
+<option>Marta Sofia Simões Marques </option>
+<option>Miguel Costa Caeiro</option>
+<option>Miguel da Silva Brito</option>
+<option>Miloca de Fátima Djaita</option>
+<option>Nadine Abreu Coelho</option>
+<option>Najlae Tahri</option>
+<option>Nataliya Ponomarenko</option>
+<option>Patricia Isabel Ribeiro Bento</option>
+<option>Patrícia Sanches Moreira</option>
+<option>Patricia Sofia Penas Aiveca E Gomes</option>
+<option>Patrícia Torres Tereno</option>
+<option>Pedro Miguel Mocho Carocho</option>
+<option>Raquel Filipa Barão de Almeida Guerreiro</option>
+<option>Rute Isabel Bento Calado</option>
+<option>Sandro Alexandre Antunes de Carvalho</option>
+<option>Sergio Henrique Boazinha Charrua</option>
+<option>Silvia Carmo Casquinha Valente</option>
+<option>Sílvia Gomes Martinho</option>
+<option>Susana Maria Anastácio Curado</option>
+<option>Susana Marques Caeiro da Silva Elói</option>
+<option>Tânia Isabel do Rosário Ribeiro</option>
+<option>Tânia Sofia Matos Gomes</option>
+<option>Vânia Cristina Lucas Nunes Rocha</option>
+<option>Xin Tong Yu</option>
+
+
+</select>
+
+<label for="tipoDias">Tipo de Dias:</label>
+<select id="tipoDias" required>
+    <option value="F25">Férias 2025</option>
+    <option value="Preferenciais">2026 - Preferenciais</option>
+    <option value="Não Preferenciais">2026 - Não Preferenciais</option>
+</select>
+
+<label for="dataInicio">Data de Início:</label>
+<input type="date" id="dataInicio" required>
+
+<label for="dataFim">Data de Fim:</label>
+<input type="date" id="dataFim" required>
+
+<div id="diasCalculados">Dias úteis calculados: 0</div>
+
+<div id="errorMessages" class="error"></div>
+<div id="successMessage" class="success"></div>
+
+<button type="submit">Enviar</button>
+</form>
+
+<div id="resumoPedidos"></div>
+</div>
+
+<!-- SUPABASE SCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+const { createClient } = supabase;
+
+const supabaseClient = createClient(
+    "https://bijndfsxrzjviwrdvwms.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJpam5kZnN4cnpqdml3cmR2d21zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA4NTA5NTIsImV4cCI6MjA2NjQyNjk1Mn0.EWaFInuqTaxvnjytb40DdnflEbBrbSYcViKLYc_kKBk"
+);
+
+const feriados = [
+    "2026-01-01", // 01/01/2026 - Ano Novo
+    "2026-04-03", // 03/04/2026 - Sexta-feira Santa
+    "2026-05-01", // 01/05/2025 - Dia do Trabalhador
+    "2026-06-04", // 04/06/2026 - Corpo de Deus
+    "2026-06-10", // 10/06/2026 - Dia de Portugal, Camões e Comunidades Portuguesas
+    "2026-10-05", // 05/10/2026 - Implantação da República
+    "2026-12-01", // 01/12/2026 - Restauração da Independência
+    "2026-12-08", // 08/12/2026 - Imaculada Conceição
+    "2026-12-25"  // 25/12/2026 - Natal
+];
+
+
+function listarConflitosFDS_FERIADOS(dataInicio,dataFim){
+    let conflitos = [];
+    let start = new Date(dataInicio);
+    let end = new Date(dataFim);
+
+    for(let d=new Date(start); d<=end; d.setDate(d.getDate()+1)){
+        let f = d.toISOString().split("T")[0];
+        let dia = d.getDay();
+        if(dia===0 || dia===6 || feriados.includes(f)){
+            conflitos.push(f);
+        }
+    }
+    return conflitos;
+}
+
+function calcularDiasEntreDatas(dataInicio,dataFim){
+    const start = new Date(dataInicio);
+    const end = new Date(dataFim);
+    let dias = 0;
+    for(let d=new Date(start); d<=end; d.setDate(d.getDate()+1)){
+        const f = d.toISOString().split("T")[0];
+        const dia = d.getDay();
+        if(dia===0 || dia===6 || feriados.includes(f)) continue;
+        dias++;
+    }
+    return dias;
+}
+
+// Atualizar dias úteis dinamicamente
+function atualizarDiasCalculados() {
+    const dataInicio = document.getElementById("dataInicio").value;
+    const dataFim = document.getElementById("dataFim").value;
+
+    if(dataInicio && dataFim){
+        const totalDias = calcularDiasEntreDatas(dataInicio,dataFim);
+        document.getElementById("diasCalculados").innerText = `Dias úteis calculados: ${totalDias}`;
+    } else {
+        document.getElementById("diasCalculados").innerText = "Dias úteis calculados: 0";
+    }
+}
+
+document.getElementById("dataInicio").addEventListener("change", atualizarDiasCalculados);
+document.getElementById("dataFim").addEventListener("change", atualizarDiasCalculados);
+
+async function verificarDatasDuplicadas(nome,dataInicio,dataFim){
+    const { data } = await supabaseClient
+        .from("fid_clientes")
+        .select("data_inicio,data_fim")
+        .eq("nome",nome);
+
+    const inicioNovo = new Date(dataInicio);
+    const fimNovo = new Date(dataFim);
+
+    return data.filter(p=>{
+        const inicio = new Date(p.data_inicio);
+        const fim = new Date(p.data_fim);
+        return inicioNovo <= fim && fimNovo >= inicio;
+    });
+}
+
+async function verificarLimites(nome,tipoDias,diasNovo){
+    const limites = {
+"Ana Isabel Conceição Santos": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Ana Rita Falcão Coradinho": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Ana Rosa Ministro Macário": { "F25": 2, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Barbara Isabel Amantes Raposo Nunes Soares": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Beatriz Nunes Cascalheira": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Carla Sofia Gomes da Silva": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Carmen Manuela Correia Maia": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 11 },
+"Cátia Cristina Pombeiro Da Silva": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Cláudia Palma Amador": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Danbin Zhang": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Daniel Alexandre Pereira Barrocas": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Dora Luisa Piteira Celestino": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Eliana Cardoso Frade": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Elisa Pereira Fernandes": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Filipa Manuela Fonseca Martins": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Inês Isabel Pãozinho Pelado": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Inna Orekhova": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Irene Isabel Pôla Romão": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Isabela Sofia Gonçalves Canhoto": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Joana Rita Sénica Magalhães": { "F25": 1, "Preferenciais": 10, "Não Preferenciais": 12 },
+"João Nuno Branco Dias Batista Bernardino": { "F25": 1, "Preferenciais": 10, "Não Preferenciais": 12 },
+"João Pedro Leitão Leal e Brito Simões": { "F25": 7, "Preferenciais": 10, "Não Preferenciais": 12 },
+"José Augusto Chaleta Marques": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Lara Maria Teodoro Tendeiro Lopes": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Lin Mi": { "F25": 11, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Manuel da Silva Lopes Nunes": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Mara José Carrilho Semedo": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Maria de Fátima Quintino Quintas": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 11 },
+"Maria de Lurdes Alves de Almeida": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Maria Eloy Fernandes Ferreira Prazeres": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Maria João Bulhões Pereira": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Maria Luz Mosca Rocha": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Maria Manuel Ambrosio Pecas": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Mário Augusto Coelho de Matos": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Marta Filipa Almeida Pontes Valle Cancado": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Miguel Costa Caeiro": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 11 },
+"Miguel da Silva Brito": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Miloca de Fátima Djaita": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Najlae Tahri": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Nataliya Ponomarenko": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Patrícia Sanches Moreira": { "F25": 1, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Patricia Sofia Penas Aiveca E Gomes": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Patrícia Torres Tereno": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Pedro Miguel Mocho Carocho": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 2 },
+"Raquel Filipa Barão de Almeida Guerreiro": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Rute Isabel Bento Calado": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Sandro Alexandre Antunes de Carvalho": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Silvia Carmo Casquinha Valente": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Sílvia Gomes Martinho": { "F25": 4, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Susana Maria Anastácio Curado": { "F25": 1, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Susana Marques Caeiro da Silva Elói": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Tânia Isabel do Rosário Ribeiro": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Tânia Sofia Matos Gomes": { "F25": 17, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Vânia Cristina Lucas Nunes Rocha": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Xin Tong Yu": { "F25": 0, "Preferenciais": 0, "Não Preferenciais": 3 },
+"Sergio Henrique Boazinha Charrua": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Alexandre José Ramalho Godinho": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 11 },
+"Marta Sofia Simões Marques ": { "F25": 0, "Preferenciais": 9, "Não Preferenciais": 0 },
+"Nadine Abreu Coelho": { "F25": 0, "Preferenciais": 9, "Não Preferenciais": 0 },
+"Patricia Isabel Ribeiro Bento": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 },
+"Daniela Maria Moniz Ávila": { "F25": 0, "Preferenciais": 10, "Não Preferenciais": 12 }
+
+
+    };
+
+    const { data } = await supabaseClient
+        .from("fid_clientes")
+        .select("total_dias,tipo_dias")
+        .eq("nome",nome)
+        .eq("tipo_dias",tipoDias);
+
+    let usados = data.reduce((s,p)=>s+p.total_dias,0);
+    let limite = limites[nome][tipoDias];
+
+    if(usados + diasNovo > limite){
+        return { pode:false, limiteTotal: limite };
+    }
+    return { pode:true };
+}
+
+// Períodos bloqueados
+const bloqueios = [
+    { inicio: "2026-12-01", fim: "2026-12-31", excecao: "2026-12-24" }, // Deze
+    { inicio: "2026-01-01", fim: "2026-01-15" } // Janeiro 1ª quinzena
+];
+
+function intervaloBloqueado(d1, d2, bloqueios){
+    let start = new Date(d1);
+    let end = new Date(d2);
+
+    for(let d=new Date(start); d<=end; d.setDate(d.getDate()+1)){
+        let f = d.toISOString().split("T")[0];
+        for(let b of bloqueios){
+            if(f >= b.inicio && f <= b.fim && (!b.excecao || f !== b.excecao)){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+document.getElementById("reservaForm").addEventListener("submit", async(e)=>{
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const tipoDias = document.getElementById("tipoDias").value;
+    const dataInicio = document.getElementById("dataInicio").value;
+    const dataFim = document.getElementById("dataFim").value;
+
+    if(tipoDias === "F25"){
+        const limiteF25 = "2026-04-30";
+        if(dataInicio > limiteF25 || dataFim > limiteF25){
+            document.getElementById("errorMessages").innerText =
+            "❌ Férias 2025 só podem ser marcadas até 30/04/2026.";
+            document.getElementById("errorMessages").style.display="block";
+            return;
+        }
+    }
+
+    if(intervaloBloqueado(dataInicio, dataFim, bloqueios)){
+        document.getElementById("errorMessages").innerText =
+        "❌ Datas bloqueadas (Mês de Dezembro, exceto 24/12/2026).";
+        document.getElementById("errorMessages").style.display="block";
+        return;
+    }
+
+    const conflitosDatas = listarConflitosFDS_FERIADOS(dataInicio,dataFim);
+    if(conflitosDatas.length > 0){
+        document.getElementById("errorMessages").innerText =
+        "❌ Pedido não pode conter Fins de Semana ou Feriados: " + conflitosDatas.join(", ");
+        document.getElementById("errorMessages").style.display="block";
+        return;
+    }
+
+    const totalDias = calcularDiasEntreDatas(dataInicio,dataFim);
+
+    const duplicadas = await verificarDatasDuplicadas(nome,dataInicio,dataFim);
+    if(duplicadas.length > 0){
+        let conflitoMsg = duplicadas.map(c=>`${c.data_inicio} a ${c.data_fim}`).join(", ");
+        document.getElementById("errorMessages").innerText =
+        "❌ Datas em conflito: " + conflitoMsg;
+        document.getElementById("errorMessages").style.display="block";
+        return;
+    }
+
+    const limite = await verificarLimites(nome,tipoDias,totalDias);
+    if(!limite.pode){
+        let msg = "";
+        let autorizados = limite.limiteTotal;
+
+        if(tipoDias === "F25"){
+            msg = `❌ ${autorizados} dias autorizados em Férias 2025.`;
+        }
+        else if(tipoDias === "Preferenciais"){
+            msg = `❌ ${autorizados} dias autorizados em Preferenciais 2026.`;
+        }
+        else if(tipoDias === "Não Preferenciais"){
+            msg = `❌ ${autorizados} dias autorizados em Não Preferenciais 2026.`;
+        }
+
+        document.getElementById("errorMessages").innerText = msg;
+        document.getElementById("errorMessages").style.display="block";
+        return;
+    }
+
+    await supabaseClient.from("fid_clientes").insert([{
+        nome,
+        tipo_dias: tipoDias,
+        data_inicio: dataInicio,
+        data_fim: dataFim,
+        total_dias: totalDias
+    }]);
+
+    document.getElementById("successMessage").innerText =
+    `✔️ Pedido Registado: ${nome} (${tipoDias}) ${dataInicio} a ${dataFim} (${totalDias} dias úteis)`;
+    document.getElementById("errorMessages").style.display="none";
+
+    const div = document.createElement("div");
+    div.innerHTML = `
+        <strong>Pedido Registado:</strong><br>
+        Nome: ${nome}<br>
+        Tipo: ${tipoDias}<br>
+        Data Início: ${dataInicio}<br>
+        Data Fim: ${dataFim}<br>
+        Dias Úteis: ${totalDias}
+    `;
+    document.getElementById("resumoPedidos").appendChild(div);
+
+    e.target.reset();
+    document.getElementById("diasCalculados").innerText = "Dias úteis calculados: 0";
+});
+
+document.getElementById("btnEntrar").addEventListener("click",()=>{
+    if(document.getElementById("password").value === "FID*APOIOCL*"){
+        document.getElementById("passwordPrompt").style.display="none";
+        document.getElementById("formContainer").style.display="block";
+    } else {
+        document.getElementById("senhaErro").style.display="block";
+    }
+});
+</script>
+
+</body>
+</html>
